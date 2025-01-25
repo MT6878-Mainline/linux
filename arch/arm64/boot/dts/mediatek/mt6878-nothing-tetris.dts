@@ -1,26 +1,37 @@
 /*
- * SPDX-License-Identifier: (GPL-2.0 OR MIT)
- */
+* SPDX-License-Identifier: (GPL-2.0 OR MIT)
+*/
 
 /dts-v1/;
 
 #include "mt6878.dtsi"
+#include "mtcmf-bl-quirks.dts"
 
 / {
 	model = "CMF by NOTHING Phone (1)";
 	chassis-type = "handset";
 	compatible = "nothing,tetris", "mediatek,mt6878";
 
+	#address-cells = <2>;
+	#size-cells = <2>;
+
 	aliases {
 		serial0 = &uart0;
 	};
 
 	chosen {
-		stdout-path = "serial0:921600n8";
 		bootargs = "earlycon=uart8250,mmio32,0x11001000";
 	};
-};
 
-&uart0 {
-	status = "okay";
+	memory {
+		device_type = "memory";
+		reg = <0x00 0x40000000 0x2 0x0>;
+	};
+
+	reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+	};
+
 };
