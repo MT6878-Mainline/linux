@@ -1,0 +1,26 @@
+/*
+ * SPDX-License-Identifier: (GPL-2.0 OR MIT)
+ */
+
+/dts-v1/;
+
+#include "mt6878.dtsi"
+
+/ {
+	model = "CMF by NOTHING Phone (1)";
+	chassis-type = "handset";
+	compatible = "nothing,tetris", "mediatek,mt6878";
+
+	aliases {
+		serial0 = &uart0;
+	};
+
+	chosen {
+		stdout-path = "serial0:921600n8";
+		bootargs = "earlycon=uart8250,mmio32,0x11001000";
+	};
+};
+
+&uart0 {
+	status = "okay";
+};
