@@ -771,13 +771,10 @@
 			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
 	};
 
-	// NOTE: Copied from downstream HACK HACK HACK
-	// Cleanup before submit end-NOTE
 	reserved-memory {
-		#address-cells = <0x02>;
-		#size-cells = <0x02>;
+		#address-cells = <2>;
+		#size-cells = <2>;
 		ranges;
-		phandle = <0x14a>;
 
 		mblock-47-sspm_ap-shared {
 			reg = <0x00 0x7f970000 0x00 0x110000>;
