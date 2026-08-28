@@ -192,7 +192,7 @@ static int clk_mt6878_apmixed_probe(struct platform_device *pdev)
 	if (!clk_data)
 		return -ENOMEM;
 
-	r = mtk_clk_register_plls(node, mcd->clks, mcd->num_clks, clk_data);
+	r = mtk_clk_register_plls(&pdev->dev, mcd->clks, mcd->num_clks, clk_data);
 	if (r)
 		goto free_apmixed_data;
 
